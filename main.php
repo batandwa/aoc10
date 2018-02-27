@@ -1,7 +1,8 @@
 <?php
 require_once('vendor/autoload.php');
 
-$climate = new League\CLImate\CLImate;
+$climate = new League\CLImate\CLImate();
+
 $climate->arguments->add([
     'length' => [
         'prefix' => 'l',
@@ -19,11 +20,9 @@ $climate->arguments->parse();
 $length = (int)$climate->arguments->get('length');
 $inputList = $climate->arguments->get('inputlist');
 
-$game = new AOC10\Game($length);
-foreach(explode(',', $inputList) as $length) {
-    $game->processLength((int)$length);
-}
+$game = new AOC10\Game($length, $inputList);
+$hash = $game->process();
 
-$climate->br()->green()->columns(array_chunk($game->getList(), 15), 15);
+$climate->br()->green()->out(implode('', $hash));
 
 
