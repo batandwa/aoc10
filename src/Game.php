@@ -98,12 +98,4 @@ class Game {
             array_splice($this->slots, 0, $wrappedPortionLength, $reversedWrappedPortion);
         }
     }
-
-    public function getFormattedList(): string {
-        return implode('  ', $this->slots);
-    }
-
-    public function getSlots(): array {
-        return $this->slots;
-    }
 }
