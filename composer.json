@@ -1,0 +1,20 @@
+{
+    "name": "batandwa/aoc_10",
+    "require": {
+        "league/climate": "^3.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    },
+    "authors": [
+        {
+            "name": "Batandwa Colani",
+            "email": "i@batandwa.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AOC10\\":"src/"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.1/phpunit.xsd"
+         backupGlobals="false"
+         beStrictAboutChangesToGlobalState="true"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+  <!--beStrictAboutChangesToGlobalState="true"-->
+  <!--checkForUnintentionallyCoveredCode="true"-->
+    <testsuites>
+        <testsuite name="All Tests">
+            <file>test.php</file>
+        </testsuite>
+    </testsuites>
+  <!-- <filter>
+    <whitelist processUncoveredFilesFromWhitelist="true">
+      <directory suffix=".php">./classes</directory>
+      <exclude>
+        <directory>vendor</directory>
+      </exclude>
+    </whitelist>
+  </filter> -->
+</phpunit>
