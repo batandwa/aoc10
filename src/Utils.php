@@ -3,10 +3,9 @@ namespace AOC10;
 
 class Utils {
     public static function multipleXor(array $values): int {
-        $result = array_shift($values);
-        foreach ($values as $num) {
-            $result = gmp_xor($result, $num);
-        }
+        $gmped = array_map('gmp_init', $values);
+        $initial = array_shift($gmped);
+        $result = array_reduce($gmped, 'gmp_xor', $initial);
 
         return gmp_intval($result);
     }
