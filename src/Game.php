@@ -10,7 +10,7 @@ class Game {
     const CHUNK_SIZE = 16;
 
     public function __construct(int $listLength, $inputSequence) {
-        $this->slots = array_combine(range(0, $listLength-1), range(0, $listLength-1));
+        $this->slots = array_combine(range(0, $listLength - 1), range(0, $listLength - 1));
         $this->inputSequence = $inputSequence;
     }
 
@@ -20,7 +20,7 @@ class Game {
      */
     function process(): array {
         $preparedInputLengths = Utils::addSuffix(Utils::parseLengths($this->inputSequence));
-        for($j=0; $j<64; $j++) {
+        for ($j = 0; $j < 64; $j++) {
             for ($i = 0; $i < sizeof($preparedInputLengths); $i++) {
                 $this->processLength($preparedInputLengths[$i]);
             }
@@ -61,7 +61,7 @@ class Game {
      * @param $length int Length to be processed
      */
     private function processLength(int $length): void {
-        if($length > sizeof($this->slots)) {
+        if ($length > sizeof($this->slots)) {
             throw new \InvalidArgumentException('Lengths submitted should be equal or less than the size of the hash.');
         }
         $this->reverseSet($length);
