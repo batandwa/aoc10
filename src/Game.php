@@ -25,7 +25,7 @@ class Game {
         }
 
         $chunked = $this->chunk();
-        $hexed = $this->chunkToHex($chunked);
+        $hexed = Utils::chunkToHex($chunked);
 
         return $hexed;
     }
@@ -36,22 +36,6 @@ class Game {
      */
     private function chunk(): array {
         return array_chunk($this->slots, self::CHUNK_SIZE);
-    }
-
-    /**
-     * Reduce each chunk to a single decimal value using XOR then
-     * convert the result to a hexadecimal value.
-     * @param array $chunks Chunks to be reduced.
-     * @return array
-     */
-    private function chunkToHex(array $chunks): array {
-        $hexed = [];
-        foreach ($chunks as $chunk) {
-            $xorred = Utils::multipleXor($chunk);
-            $hexed[] = str_pad(dechex($xorred), 2, '0', STR_PAD_LEFT);
-        }
-
-        return $hexed;
     }
 
     /**
