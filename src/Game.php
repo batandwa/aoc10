@@ -21,9 +21,7 @@ class Game {
     function process(): array {
         $preparedInputLengths = Utils::addSuffix(Utils::parseLengths($this->inputSequence));
         for ($j = 0; $j < 64; $j++) {
-            for ($i = 0; $i < sizeof($preparedInputLengths); $i++) {
-                $this->processLength($preparedInputLengths[$i]);
-            }
+            array_map([$this, 'processLength'], $preparedInputLengths);
         }
 
         $chunked = $this->chunk();
